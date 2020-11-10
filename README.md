@@ -49,16 +49,9 @@ public static void main(String[] args) throws IOException {
     	public static void main(String[] args) throws Exception{
 
         try (PDDocument document = PDDocument.load(new File(ENCRYPTED_PDF), USER_PASSWORD)) {
-            
 	    document.setAllSecurityToBeRemoved(true);
-
-//          PDFTextStripper reader = new PDFTextStripper();
-//          String pageText = reader.getText(document);
-//          System.out.println(pageText);
-            
-	document.save("D://nonmember.pdf");
+	    document.save("D://nonmember.pdf");
             document.close();
-
         } catch (IOException e){
             System.err.println("Exception while trying to read pdf document - " + e);
         }
