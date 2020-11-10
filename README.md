@@ -27,6 +27,7 @@ public static void main(String[] args) throws IOException {
 
 	 StandardProtectionPolicy standardPP = new StandardProtectionPolicy(OWNER_PASSWORD, USER_PASSWORD, permission);
 	 standardPP.setEncryptionKeyLength(128);
+	 
 	 document.protect(standardPP);
 	 document.save(ENCRYPTED_PDF);
 	 document.close();
