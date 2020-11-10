@@ -20,8 +20,8 @@ public static void main(String[] args) throws IOException {
 
 	 /** Setting access permissions */
 	 AccessPermission permission = new AccessPermission();
-	 permission.setCanPrint(false);
-	 permission.setCanExtractContent(false);
+	 permission.setCanPrint(false);          // ไม่สามารถสั่งปริ้นได้
+	 permission.setCanExtractContent(false); // ไม่สามารถ...
 
 	 StandardProtectionPolicy standardPP = new StandardProtectionPolicy(OWNER_PASSWORD, USER_PASSWORD, permission);
 	 standardPP.setEncryptionKeyLength(128);
