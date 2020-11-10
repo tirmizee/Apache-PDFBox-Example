@@ -2,6 +2,8 @@
 
 ### Encrypt PDF Document
 
+<b>
+
 ```java
 
 public static final String ENCRYPTED_PDF = "D://nonmember.pdf";
@@ -37,7 +39,11 @@ public static void main(String[] args) throws IOException {
 
 ```
 
+</b>
+
 #### Decrypt PDF Document
+
+<b>
 
 ```java
 
@@ -59,6 +65,8 @@ public static void main(String[] args) throws IOException {
 
 
 ```
+
+</b>
 
 ### Reference
 
