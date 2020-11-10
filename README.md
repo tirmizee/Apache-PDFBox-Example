@@ -47,12 +47,12 @@ public static void main(String[] args) throws IOException {
 
 ```java
 
-	public static final String ENCRYPTED_PDF = "D://nonmember.pdf";
+    public static final String ENCRYPTED_PDF = "D://nonmember.pdf";
 
-	public final static String USER_PASSWORD = "password";
-	public final static String OWNER_PASSWORD = "user";
+    public final static String USER_PASSWORD = "password";
+    public final static String OWNER_PASSWORD = "user";
 	
-    	public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception{
 
         try (PDDocument document = PDDocument.load(new File(ENCRYPTED_PDF), USER_PASSWORD)) {
 	    document.setAllSecurityToBeRemoved(true);
