@@ -52,9 +52,28 @@ public static void main(String[] args) throws IOException {
 	    document.protect(standardPP);
 	    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 	    document.save(outputStream);
-	    document.close();
 	    return outputStream.toByteArray();
 	}
+    }
+
+```
+
+#### Encrypt PDF Document With InputStream
+
+<b>
+
+```java
+
+    public static byte[] encryptWithPassword(InputStream stream, String password, int length) throws IOException {
+	try (PDDocument document = PDDocument.load(stream)) {
+            AccessPermission permission = new AccessPermission();
+            StandardProtectionPolicy standardPP = new StandardProtectionPolicy(password, password, permission);
+            standardPP.setEncryptionKeyLength(length);
+            document.protect(standardPP);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            document.save(outputStream);
+            return outputStream.toByteArray();
+        }
     }
 
 ```
