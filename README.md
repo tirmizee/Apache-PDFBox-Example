@@ -14,11 +14,7 @@ public final static String OWNER_PASSWORD = "user";
 
 public static void main(String[] args) throws IOException {
 
-   PDDocument document = null;
-
-      try {
-
-         document = PDDocument.load(new File(ENCRYPTED_PDF));
+     try (PDDocument document = PDDocument.load(new File(ENCRYPTED_PDF))) {
 
 	 /** Setting access permissions */
 	 AccessPermission permission = new AccessPermission();
@@ -58,7 +54,6 @@ public static void main(String[] args) throws IOException {
         try (PDDocument document = PDDocument.load(new File(ENCRYPTED_PDF), USER_PASSWORD)) {
 	    document.setAllSecurityToBeRemoved(true);
 	    document.save(ENCRYPTED_PDF);
-            document.close();
         } catch (IOException e){
             System.err.println("Exception while trying to read pdf document - " + e);
         }
