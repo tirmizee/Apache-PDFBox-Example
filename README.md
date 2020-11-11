@@ -45,15 +45,16 @@ public static void main(String[] args) throws IOException {
 ```java
 
     public static byte[] encryptWithPassword(byte[] bytes, String password, int length) throws IOException {
-        PDDocument document = PDDocument.load(bytes);
-        AccessPermission permission = new AccessPermission();
-        StandardProtectionPolicy standardPP = new StandardProtectionPolicy(password, password, permission);
-        standardPP.setEncryptionKeyLength(length);
-        document.protect(standardPP);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        document.save(outputStream);
-        document.close();
-        return outputStream.toByteArray();
+        try (PDDocument document = PDDocument.load(bytes)) {
+	    AccessPermission permission = new AccessPermission();
+	    StandardProtectionPolicy standardPP = new StandardProtectionPolicy(password, password, permission);
+	    standardPP.setEncryptionKeyLength(length);
+	    document.protect(standardPP);
+	    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+	    document.save(outputStream);
+	    document.close();
+	    return outputStream.toByteArray();
+	}
     }
 
 ```
