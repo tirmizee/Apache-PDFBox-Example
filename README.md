@@ -38,7 +38,7 @@ public static void main(String[] args) throws IOException {
 
 </b>
 
-#### ### Encrypt PDF Document With Btyes
+#### Encrypt PDF Document With Btyes
 
 <b>
 
